@@ -1,9 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://87ellu7d4v6s"]
 
-[ext_resource type="Texture2D" uid="uid://dj4fak4p7787u" path="res://assets/tileSet/Base_tile_canteen_level-1.png.png" id="1_uwi3b"]
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bo0n6"]
+load_path = "res://.godot/imported/Base_tile_canteen_level-1.png.png-39d1b1eea932f8ce351203dca55aaf19.ctex"
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
-texture = ExtResource("1_uwi3b")
+texture = SubResource("CompressedTexture2D_bo0n6")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
