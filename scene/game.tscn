@@ -1,3 +1,7 @@
-[gd_scene format=3 uid="uid://bdwtqteb5usff"]
+[gd_scene load_steps=2 format=3 uid="uid://bdwtqteb5usff"]
+
+[ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/canteen_level.tscn" id="1_5kiuu"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CanteenLevel" parent="." instance=ExtResource("1_5kiuu")]
