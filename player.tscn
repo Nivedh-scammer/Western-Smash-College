@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bnryxgco02kvo"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
+
+[node name="Sam" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_sh265")
