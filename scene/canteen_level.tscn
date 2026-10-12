@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=4 uid="uid://87ellu7d4v6s"]
+[gd_scene load_steps=7 format=4 uid="uid://87ellu7d4v6s"]
 
 [ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
+[ext_resource type="PackedScene" uid="uid://bnryxgco02kvo" path="res://player.tscn" id="2_1ntxb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_uwi3b")
 0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
 [sub_resource type="TileSet" id="TileSet_nnr8j"]
 physics_layer_0/collision_layer = 1
@@ -34,9 +39,13 @@ scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_uwi3b")
 
 [node name="RightBoundary" type="StaticBody2D" parent="."]
+position = Vector2(-452, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
 position = Vector2(1595, 292)
 rotation = -1.5708
 scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_1ntxb")
+
+[node name="Sam" parent="." instance=ExtResource("2_1ntxb")]
+position = Vector2(326, 603)
