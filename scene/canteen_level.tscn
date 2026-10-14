@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://87ellu7d4v6s"]
 
 [ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
-[ext_resource type="PackedScene" uid="uid://bnryxgco02kvo" path="res://scene/player.tscn" id="2_1ntxb"]
+[ext_resource type="PackedScene" uid="uid://bgaj8y4150r06" path="res://scene/player.tscn" id="2_1ntxb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_uwi3b")
