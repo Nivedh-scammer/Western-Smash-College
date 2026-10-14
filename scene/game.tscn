@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bdwtqteb5usff"]
+[gd_scene load_steps=2 format=3 uid="uid://4h54oy56x4f8"]
 
-[ext_resource type="PackedScene" uid="uid://bdwtqteb5usff" path="res://scene/game.tscn" id="1_5kiuu"]
+[ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/canteen_level.tscn" id="1_5kiuu"]
 
 [node name="Game" type="Node2D"]
 
