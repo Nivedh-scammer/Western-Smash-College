@@ -1,5 +1,10 @@
 [gd_scene format=3 uid="uid://bbxr66ggbbydn"]
 
-[node name="Sam" type="Node2D"]
+[node name="Sam" type="CharacterBody2D"]
 
-[node name="Player" type="CharacterBody2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(4, 4)
