@@ -1,6 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://bnryxgco02kvo"]
+[gd_scene load_steps=17 format=3 uid="uid://bnryxgco02kvo"]
 
+<<<<<<< HEAD:scene/player.tscn
 [ext_resource type="Texture2D" uid="uid://xhvs1pdmcnax" path="res://assets/characters/characterAnimation/samWalk.png" id="1_xo3ru"]
+=======
+[ext_resource type="Texture2D" uid="uid://be62dmm8ccl7d" path="res://assets/characters/samWalk.png" id="1_4flbx"]
+[ext_resource type="Texture2D" uid="uid://o6f7ijyaw6n4" path="res://assets/characters/Sam Punch.png" id="1_onrkg"]
+>>>>>>> ffac304b79248de0b1c3eb378f48d2902008a8ea:player.tscn
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
@@ -41,6 +46,22 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 "
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_b26j0"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7ghd"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nvl01"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ivps1"]
+atlas = ExtResource("1_onrkg")
+region = Rect2(0, 64, 64, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
 atlas = ExtResource("1_xo3ru")
 region = Rect2(0, 0, 32, 32)
@@ -73,6 +94,23 @@ region = Rect2(64, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_b26j0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7ghd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nvl01")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ivps1")
+}],
+"loop": true,
+"name": &"punch",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_onrkg")
 }, {
 "duration": 1.0,
@@ -98,8 +136,9 @@ animations = [{
 "speed": 7.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b26j0"]
-size = Vector2(15, 31)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_urp6f"]
+radius = 9.0
+height = 34.0
 
 [node name="Sam" type="CharacterBody2D"]
 collision_layer = 2
@@ -108,10 +147,9 @@ script = SubResource("GDScript_4flbx")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -1)
 sprite_frames = SubResource("SpriteFrames_sh265")
-animation = &"walkingForward"
-frame = 6
-frame_progress = 1.0
+animation = &"punch"
+frame_progress = 0.259397
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-1.5, -0.5)
-shape = SubResource("RectangleShape2D_b26j0")
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_urp6f")
