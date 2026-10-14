@@ -1,7 +1,6 @@
-[gd_scene load_steps=7 format=4 uid="uid://87ellu7d4v6s"]
+[gd_scene load_steps=6 format=4 uid="uid://87ellu7d4v6s"]
 
-[ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
-[ext_resource type="PackedScene" uid="uid://bgaj8y4150r06" path="res://scene/player.tscn" id="2_1ntxb"]
+[ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_uwi3b")
@@ -46,6 +45,3 @@ position = Vector2(1595, 292)
 rotation = -1.5708
 scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_1ntxb")
-
-[node name="Sam" parent="." instance=ExtResource("2_1ntxb")]
-position = Vector2(326, 603)
