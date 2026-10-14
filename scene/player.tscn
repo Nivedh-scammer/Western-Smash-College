@@ -1,7 +1,11 @@
 [gd_scene load_steps=17 format=3 uid="uid://bnryxgco02kvo"]
 
+<<<<<<< HEAD:scene/player.tscn
+[ext_resource type="Texture2D" uid="uid://xhvs1pdmcnax" path="res://assets/characters/characterAnimation/samWalk.png" id="1_xo3ru"]
+=======
 [ext_resource type="Texture2D" uid="uid://be62dmm8ccl7d" path="res://assets/characters/samWalk.png" id="1_4flbx"]
 [ext_resource type="Texture2D" uid="uid://o6f7ijyaw6n4" path="res://assets/characters/Sam Punch.png" id="1_onrkg"]
+>>>>>>> ffac304b79248de0b1c3eb378f48d2902008a8ea:player.tscn
 
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
@@ -59,31 +63,31 @@ atlas = ExtResource("1_onrkg")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_onrkg"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3pqv"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(32, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hqtel"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sweqy"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(96, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2hs0m"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(0, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1jxqw"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(32, 32, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dw050"]
-atlas = ExtResource("1_4flbx")
+atlas = ExtResource("1_xo3ru")
 region = Rect2(64, 32, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_sh265"]
