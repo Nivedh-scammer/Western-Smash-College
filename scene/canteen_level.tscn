@@ -47,5 +47,3 @@ rotation = -1.5708
 scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_1ntxb")
 
-[node name="Sam" parent="." instance=ExtResource("2_1ntxb")]
-position = Vector2(326, 603)

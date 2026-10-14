@@ -1,12 +1,5 @@
 [gd_scene load_steps=17 format=3 uid="uid://bnryxgco02kvo"]
 
-<<<<<<< HEAD:scene/player.tscn
-[ext_resource type="Texture2D" uid="uid://xhvs1pdmcnax" path="res://assets/characters/characterAnimation/samWalk.png" id="1_xo3ru"]
-=======
-[ext_resource type="Texture2D" uid="uid://be62dmm8ccl7d" path="res://assets/characters/samWalk.png" id="1_4flbx"]
-[ext_resource type="Texture2D" uid="uid://o6f7ijyaw6n4" path="res://assets/characters/Sam Punch.png" id="1_onrkg"]
->>>>>>> ffac304b79248de0b1c3eb378f48d2902008a8ea:player.tscn
-
 [sub_resource type="GDScript" id="GDScript_4flbx"]
 script/source = "extends CharacterBody2D
 
