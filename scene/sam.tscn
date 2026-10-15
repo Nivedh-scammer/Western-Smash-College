@@ -1,10 +1,68 @@
-[gd_scene format=3 uid="uid://bbxr66ggbbydn"]
+[gd_scene load_steps=10 format=3 uid="uid://bbxr66ggbbydn"]
+
+[ext_resource type="Texture2D" uid="uid://bs4xxbkwd3j6f" path="res://assets/characters/characterAnimation/samWalk.png" id="1_5np2g"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_187mq"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8d5pb"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cshrh"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_44c0j"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_squv8"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7yuqp"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_j6xep"]
+atlas = ExtResource("1_5np2g")
+region = Rect2(64, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2dg6x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_187mq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8d5pb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cshrh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_44c0j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_squv8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7yuqp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_j6xep")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Sam" type="CharacterBody2D"]
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2dg6x")
