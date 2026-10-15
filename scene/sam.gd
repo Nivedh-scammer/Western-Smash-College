@@ -1,25 +1,62 @@
 extends CharacterBody2D
 
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+@onready var sprite = $AnimatedSprite2D
+@onready var punch_hitbox = $Hitbox/Punch
+
+# Tracking if the character is currently locked in an attack animation
+var is_punching = false
+
+func _ready() -> void:
+	# Connect to the signal to know when the punch animation finishes
+	sprite.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump.
-	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+	# Handle jump using your custom action "Jump P1"
+	if Input.is_action_just_pressed("Jump P1") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction := Input.get_axis("ui_left", "ui_right")
-	if direction:
-		velocity.x = direction * SPEED
+	# Handle punching input using your custom action "Punch P1"
+	if Input.is_action_just_pressed("Punch P1") and not is_punching:
+		is_punching = true
+		velocity.x = 0 # Optional: Stops movement momentum when punching
+		sprite.play("punch")
+
+	# Get the input direction using your custom movement keys
+	var direction := Input.get_axis("Left P1", "Right P1")
+	
+
+# Only allow horizontal movement and animations if not actively punching
+	if not is_punching:
+		if direction:
+			velocity.x = direction * SPEED
+			sprite.play("walk") # Plays your walking loop while moving
+			
+			# Flip the sprite and the hitbox area based on looking direction
+			sprite.flip_h = direction < 0
+			$Hitbox.scale.x = -1 if direction < 0 else 1
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			sprite.play("Idle") # Switches to your new idle animation when standing stillme
 	else:
+		# Slowly slide to a stop if punching mid-run
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
+	
+	# Manage the hitbox toggle relative to the punch animation timeline
+	if sprite.animation == "punch" and sprite.frame == 2:
+		punch_hitbox.disabled = false
+	else:
+		punch_hitbox.disabled = true
+
+# This function triggers automatically when any animation reaches its final frame
+func _on_animation_finished() -> void:
+	if sprite.animation == "punch":
+		is_punching = false

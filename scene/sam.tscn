@@ -1,6 +1,41 @@
-[gd_scene load_steps=10 format=3 uid="uid://bbxr66ggbbydn"]
+[gd_scene load_steps=23 format=3 uid="uid://bbxr66ggbbydn"]
 
 [ext_resource type="Texture2D" uid="uid://bs4xxbkwd3j6f" path="res://assets/characters/characterAnimation/samWalk.png" id="1_5np2g"]
+[ext_resource type="Script" uid="uid://p3ngcwi1n8n4" path="res://scene/sam.gd" id="1_8d5pb"]
+[ext_resource type="Texture2D" uid="uid://52cqjyl7msus" path="res://assets/characters/characterAnimation/Sam Idle.png" id="2_44c0j"]
+[ext_resource type="Texture2D" uid="uid://bh334r1h2ndfs" path="res://assets/characters/characterAnimation/Sam Punch.png" id="2_cshrh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbs6p"]
+atlas = ExtResource("2_44c0j")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_khfwr"]
+atlas = ExtResource("2_44c0j")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_812g8"]
+atlas = ExtResource("2_44c0j")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dm48d"]
+atlas = ExtResource("2_44c0j")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2dg6x"]
+atlas = ExtResource("2_cshrh")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_quj7w"]
+atlas = ExtResource("2_cshrh")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4x80x"]
+atlas = ExtResource("2_cshrh")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_phbnt"]
+atlas = ExtResource("2_cshrh")
+region = Rect2(64, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_187mq"]
 atlas = ExtResource("1_5np2g")
@@ -34,6 +69,40 @@ region = Rect2(64, 32, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_nbs6p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_khfwr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_812g8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dm48d")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2dg6x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_quj7w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4x80x")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_phbnt")
+}],
+"loop": false,
+"name": &"punch",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_187mq")
 }, {
 "duration": 1.0,
@@ -54,15 +123,34 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_j6xep")
 }],
-"loop": true,
-"name": &"default",
-"speed": 5.0
+"loop": false,
+"name": &"walk",
+"speed": 8.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nbs6p"]
+radius = 7.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_khfwr"]
+size = Vector2(20, 7)
+
 [node name="Sam" type="CharacterBody2D"]
+script = ExtResource("1_8d5pb")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2dg6x")
+animation = &"Idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CapsuleShape2D_nbs6p")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="Punch" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(7, -5)
+shape = SubResource("RectangleShape2D_khfwr")
+disabled = true
