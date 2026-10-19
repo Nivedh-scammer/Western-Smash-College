@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=4 uid="uid://87ellu7d4v6s"]
+[gd_scene load_steps=8 format=4 uid="uid://87ellu7d4v6s"]
 
 [ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="2_1ntxb"]
+[ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="3_nnr8j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_uwi3b")
@@ -48,3 +49,5 @@ scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_1ntxb")
 
 [node name="Sam" parent="." instance=ExtResource("2_1ntxb")]
+
+[node name="Nivedh" parent="." instance=ExtResource("3_nnr8j")]

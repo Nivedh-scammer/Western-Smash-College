@@ -97,6 +97,11 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"grab",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a2bso")
@@ -169,8 +174,8 @@ zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2dg6x")
-animation = &"jump"
-frame = 2
+animation = &"punch"
+frame = 3
 frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

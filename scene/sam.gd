@@ -3,6 +3,12 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
+# Health and combat stats
+var max_health: int = 150
+var current_health: int = 150
+var punch_damage: int = 25
+var grab_damage: int = 65
+
 @onready var sprite = $AnimatedSprite2D
 @onready var punch_hitbox = $Hitbox/Punch
 
@@ -72,6 +78,18 @@ func update_animations(direction: float) -> void:
 		# Ensure jump animation plays while airborne if not punching
 		if sprite.animation != "jump" and not is_punching:
 			sprite.play("jump")
+
+# Function to handle taking damage from opponents
+func take_damage(amount: int) -> void:
+	current_health -= amount
+	current_health = max(0, current_health) # Prevent health from dropping below 0
+	
+	if current_health <= 0:
+		die()
+
+func die() -> void:
+	# Add death logic here (e.g., queue_free(), play death animation, restart level)
+	queue_free()
 
 # This function triggers automatically when any animation reaches its final frame
 func _on_animation_finished() -> void:
