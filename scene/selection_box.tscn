@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dutdtwo85m1eg"]
+
+[ext_resource type="Texture2D" uid="uid://cwcm2hgjchq10" path="res://assets/characters/characterProfile/p1_box.png" id="1_2c28s"]
+[ext_resource type="Script" uid="uid://845gepp3jk2d" path="res://scene/selection_box.gd" id="1_l04tn"]
+[ext_resource type="Texture2D" uid="uid://bmrs1jbhfath7" path="res://assets/characters/characterProfile/p2_box.png" id="2_l04tn"]
+
+[node name="SelectionBox" type="Control"]
+custom_minimum_size = Vector2(60, 100)
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_l04tn")
+
+[node name="P1Texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 100.0
+texture = ExtResource("1_2c28s")
+expand_mode = 1
+
+[node name="P2Texture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 100.0
+texture = ExtResource("2_l04tn")
+expand_mode = 1
