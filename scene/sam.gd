@@ -6,67 +6,70 @@ const JUMP_VELOCITY = -400.0
 # Health and combat stats
 var max_health: int = 150
 var current_health: int = 150
-var punch_damage: int = 25
-var grab_damage: int = 65
+var punch_damage: int = 30
 
 @onready var sprite = $AnimatedSprite2D
 @onready var punch_hitbox = $Hitbox/Punch
+@onready var stun_hitbox_1 = $Hitbox/Stun1
+@onready var stun_hitbox_2 = $Hitbox/Stun2
 
-# Tracking state flags
+# Action state flags
 var is_punching = false
+var is_stunning = false
 
 func _ready() -> void:
-	# Connect to the signal to know when animations finish
 	sprite.animation_finished.connect(_on_animation_finished)
+	
+	# Connects the Hitbox Area2D signal automatically
+	if has_node("Hitbox"):
+		$Hitbox.body_entered.connect(_on_punch_body_entered)
+		$Hitbox.body_entered.connect(_on_stun_body_entered)
 
 func _physics_process(delta: float) -> void:
-	# Add the gravity.
+	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump using your custom action "Jump P1"
+	# Handle jump using "Jump P1" (W)
 	if Input.is_action_just_pressed("Jump P1") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-		if not is_punching:
+		if not is_punching and not is_stunning:
 			sprite.play("jump")
 
-	# Handle punching input using your custom action "Punch P1"
-	if Input.is_action_just_pressed("Punch P1") and not is_punching:
+	# Handle Punch using "Punch P1" (E)
+	if Input.is_action_just_pressed("Punch P1") and not is_punching and not is_stunning:
 		is_punching = true
-		velocity.x = 0 # Optional: Stops movement momentum when punching
+		velocity.x = 0
 		sprite.play("punch")
 
-	# Get the input direction using your custom movement keys
+	# Handle Stun using "Stun P1" (Q)
+	if Input.is_action_just_pressed("Stun P1") and not is_punching and not is_stunning:
+		is_stunning = true
+		velocity.x = 0
+		sprite.play("stun")
+
+	# Get horizontal movement direction ("Left P1" / "Right P1")
 	var direction := Input.get_axis("Left P1", "Right P1")
 	
-	# Only allow horizontal movement if not actively punching
-	if not is_punching:
+	if not is_punching and not is_stunning:
 		if direction != 0:
 			velocity.x = direction * SPEED
-			
-			# Flip the sprite and the hitbox area based on looking direction
 			sprite.flip_h = direction < 0
 			$Hitbox.scale.x = -1 if direction < 0 else 1
 		else:
 			velocity.x = move_toward(velocity.x, 0, SPEED)
 
-		# Update animations for ground movement
 		update_animations(direction)
 	else:
-		# Slowly slide to a stop if punching mid-run
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
 	move_and_slide()
 	
-	# Manage the hitbox toggle relative to the punch animation timeline
-	if sprite.animation == "punch" and sprite.frame == 2:
-		punch_hitbox.disabled = false
-	else:
-		punch_hitbox.disabled = true
+	# Toggle hitboxes based on animation frame
+	manage_hitboxes()
 
 func update_animations(direction: float) -> void:
 	if is_on_floor():
-		# Let the jump animation finish playing upon landing before switching to Idle/Walk
 		if sprite.animation == "jump" and sprite.is_playing():
 			return
 		
@@ -75,23 +78,44 @@ func update_animations(direction: float) -> void:
 		else:
 			sprite.play("Idle")
 	else:
-		# Ensure jump animation plays while airborne if not punching
-		if sprite.animation != "jump" and not is_punching:
+		if sprite.animation != "jump" and not is_punching and not is_stunning:
 			sprite.play("jump")
 
-# Function to handle taking damage from opponents
+func manage_hitboxes() -> void:
+	# Enable Punch Hitbox on frame 2
+	if sprite.animation == "punch" and sprite.frame == 2:
+		if punch_hitbox: punch_hitbox.disabled = false
+	else:
+		if punch_hitbox: punch_hitbox.disabled = true
+
+	# Enable Stun Hitboxes on frame 2 and onwards
+	if sprite.animation == "stun" and sprite.frame >= 2:
+		if stun_hitbox_1: stun_hitbox_1.disabled = false
+		if stun_hitbox_2: stun_hitbox_2.disabled = false
+	else:
+		if stun_hitbox_1: stun_hitbox_1.disabled = true
+		if stun_hitbox_2: stun_hitbox_2.disabled = true
+
 func take_damage(amount: int) -> void:
 	current_health -= amount
-	current_health = max(0, current_health) # Prevent health from dropping below 0
-	
+	current_health = max(0, current_health)
 	if current_health <= 0:
 		die()
 
 func die() -> void:
-	# Add death logic here (e.g., queue_free(), play death animation, restart level)
 	queue_free()
 
-# This function triggers automatically when any animation reaches its final frame
 func _on_animation_finished() -> void:
 	if sprite.animation == "punch":
 		is_punching = false
+	elif sprite.animation == "stun":
+		is_stunning = false
+
+# Signal callbacks that trigger when Hitbox touches another player
+func _on_punch_body_entered(body: Node2D) -> void:
+	if body != self and is_punching and body.has_method("take_damage"):
+		body.take_damage(punch_damage)
+
+func _on_stun_body_entered(body: Node2D) -> void:
+	if body != self and is_stunning and body.has_method("apply_stun"):
+		body.apply_stun(3.0)

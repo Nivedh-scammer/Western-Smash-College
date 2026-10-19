@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://bbxr66ggbbydn"]
+[gd_scene load_steps=34 format=3 uid="uid://bbxr66ggbbydn"]
 
 [ext_resource type="Texture2D" uid="uid://bs4xxbkwd3j6f" path="res://assets/characters/characterAnimation/samWalk.png" id="1_5np2g"]
 [ext_resource type="Script" uid="uid://p3ngcwi1n8n4" path="res://scene/sam.gd" id="1_8d5pb"]
 [ext_resource type="Texture2D" uid="uid://52cqjyl7msus" path="res://assets/characters/characterAnimation/Sam Idle.png" id="2_44c0j"]
 [ext_resource type="Texture2D" uid="uid://bh334r1h2ndfs" path="res://assets/characters/characterAnimation/Sam Punch.png" id="2_cshrh"]
 [ext_resource type="Texture2D" uid="uid://bw1ytshx6ible" path="res://assets/characters/characterAnimation/Sam Jump.png" id="3_44c0j"]
+[ext_resource type="Texture2D" uid="uid://dur8rfq5ryko4" path="res://assets/characters/characterAnimation/Sam Stun.png" id="5_squv8"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbs6p"]
 atlas = ExtResource("2_44c0j")
@@ -49,6 +50,22 @@ region = Rect2(0, 64, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_phbnt"]
 atlas = ExtResource("2_cshrh")
 region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vh0es"]
+atlas = ExtResource("5_squv8")
+region = Rect2(0, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_336uh"]
+atlas = ExtResource("5_squv8")
+region = Rect2(50, 0, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t1jlj"]
+atlas = ExtResource("5_squv8")
+region = Rect2(0, 32, 50, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6b576"]
+atlas = ExtResource("5_squv8")
+region = Rect2(50, 32, 50, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_187mq"]
 atlas = ExtResource("1_5np2g")
@@ -97,11 +114,6 @@ animations = [{
 "name": &"Idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"grab",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_a2bso")
@@ -132,6 +144,23 @@ animations = [{
 "loop": false,
 "name": &"punch",
 "speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vh0es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_336uh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t1jlj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6b576")
+}],
+"loop": false,
+"name": &"stun",
+"speed": 5.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -166,6 +195,12 @@ radius = 7.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_khfwr"]
 size = Vector2(20, 7)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v1glv"]
+size = Vector2(13, 12)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yqoqb"]
+size = Vector2(13.5, 27)
+
 [node name="Sam" type="CharacterBody2D"]
 script = ExtResource("1_8d5pb")
 
@@ -174,11 +209,11 @@ zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_2dg6x")
-animation = &"punch"
+animation = &"stun"
 frame = 3
-frame_progress = 1.0
+frame_progress = 0.421009
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Hurtbox" type="CollisionShape2D" parent="."]
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_nbs6p")
 
@@ -188,3 +223,11 @@ shape = SubResource("CapsuleShape2D_nbs6p")
 position = Vector2(7, -5)
 shape = SubResource("RectangleShape2D_khfwr")
 disabled = true
+
+[node name="Stun 1" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(9, 7)
+shape = SubResource("RectangleShape2D_v1glv")
+
+[node name="Stun 2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(15, 2.5)
+shape = SubResource("RectangleShape2D_yqoqb")

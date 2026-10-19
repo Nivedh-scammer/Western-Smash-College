@@ -3,14 +3,16 @@ extends CharacterBody2D
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-# Health stats for Nivedh
+# Health stats
 var max_health: int = 100
 var current_health: int = 100
+
+# Stun tracking
+var is_stunned: bool = false
 
 @onready var sprite = $AnimatedSprite2D
 
 func _ready() -> void:
-	# Connect to the signal to know when animations finish
 	sprite.animation_finished.connect(_on_animation_finished)
 
 func _physics_process(delta: float) -> void:
@@ -18,12 +20,18 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 
-	# Handle jump using "Jump P2" (I key)
+	# If stunned, freeze controls and stop horizontal movement
+	if is_stunned:
+		velocity.x = move_toward(velocity.x, 0, SPEED)
+		move_and_slide()
+		return
+
+	# Handle jump using "Jump P2" (I)
 	if Input.is_action_just_pressed("Jump P2") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
 		sprite.play("jump")
 
-	# Get input direction using "Left P2" (J) and "Right P2" (L)
+	# Get horizontal movement direction ("Left P2" / "Right P2")
 	var direction := Input.get_axis("Left P2", "Right P2")
 	
 	if direction != 0:
@@ -32,14 +40,12 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 
-	# Update movement animations
 	update_animations(direction)
-
 	move_and_slide()
 
 func update_animations(direction: float) -> void:
 	if is_on_floor():
-		# Let the jump animation finish playing upon landing before switching to idle/walk
+		# Let jump finish playing upon landing before returning to idle/walk
 		if sprite.animation == "jump" and sprite.is_playing():
 			return
 		
@@ -48,11 +54,22 @@ func update_animations(direction: float) -> void:
 		else:
 			sprite.play("idle")
 	else:
-		# Ensure jump animation plays while airborne
 		if sprite.animation != "jump":
 			sprite.play("jump")
 
-# Function to handle taking damage
+# Applies 3-second stun state
+func apply_stun(duration: float = 3.0) -> void:
+	if is_stunned:
+		return
+		
+	is_stunned = true
+	sprite.modulate = Color(0.6, 0.6, 1.0, 1.0) # Tint blue to show stun
+	
+	await get_tree().create_timer(duration).timeout
+	
+	is_stunned = false
+	sprite.modulate = Color(1.0, 1.0, 1.0, 1.0) # Reset color
+
 func take_damage(amount: int) -> void:
 	current_health -= amount
 	current_health = max(0, current_health)
@@ -64,4 +81,4 @@ func die() -> void:
 	queue_free()
 
 func _on_animation_finished() -> void:
-	pass # Reserved for future action animations
+	pass
