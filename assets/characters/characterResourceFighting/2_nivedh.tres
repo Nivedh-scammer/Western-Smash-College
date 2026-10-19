@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Character_Resource_Fighting" load_steps=3 format=3 uid="uid://bv8ti2qijoxkv"]
+
+[ext_resource type="Script" uid="uid://de21r07ctqvh2" path="res://assets/characters/character_resources.gd" id="1_dg4dy"]
+[ext_resource type="Texture2D" uid="uid://bxtuftedn5t4t" path="res://assets/characters/characterProfile/Nivedh Icon.png" id="2_r6pb1"]
+
+[resource]
+script = ExtResource("1_dg4dy")
+name = "Nivedh"
+texture = ExtResource("2_r6pb1")
+metadata/_custom_type_script = "uid://de21r07ctqvh2"
