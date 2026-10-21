@@ -29,7 +29,8 @@ offset_bottom = -38.0
 grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 
-[node name="TextureRect" type="TextureRect" parent="HBoxContainer"]
+[node name="P1Selection" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("1_dwavm")
 expand_mode = 2
@@ -39,6 +40,7 @@ layout_mode = 2
 texture = ExtResource("2_81hqe")
 
 [node name="GridContainer" type="GridContainer" parent="HBoxContainer/Characters"]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -64,7 +66,8 @@ custom_minimum_size = Vector2(70, 100)
 layout_mode = 2
 character = ExtResource("6_ci3hj")
 
-[node name="TextureRect3" type="TextureRect" parent="HBoxContainer"]
+[node name="P2Selection" type="TextureRect" parent="HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_2qblp")
 expand_mode = 2

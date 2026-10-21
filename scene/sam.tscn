@@ -1,11 +1,17 @@
 [gd_scene load_steps=34 format=3 uid="uid://bbxr66ggbbydn"]
 
-[ext_resource type="Texture2D" uid="uid://bs4xxbkwd3j6f" path="res://assets/characters/characterAnimation/samWalk.png" id="1_5np2g"]
+[ext_resource type="Texture2D" uid="uid://xhvs1pdmcnax" path="res://assets/characters/characterAnimation/samWalk.png" id="1_5np2g"]
 [ext_resource type="Script" uid="uid://p3ngcwi1n8n4" path="res://scene/sam.gd" id="1_8d5pb"]
+<<<<<<< Updated upstream
 [ext_resource type="Texture2D" uid="uid://52cqjyl7msus" path="res://assets/characters/characterAnimation/samIdle.png" id="2_44c0j"]
 [ext_resource type="Texture2D" uid="uid://bh334r1h2ndfs" path="res://assets/characters/characterAnimation/samPunch.png" id="2_cshrh"]
 [ext_resource type="Texture2D" uid="uid://bw1ytshx6ible" path="res://assets/characters/characterAnimation/samJump.png" id="3_44c0j"]
 [ext_resource type="Texture2D" uid="uid://dur8rfq5ryko4" path="res://assets/characters/characterAnimation/samStun.png" id="5_squv8"]
+=======
+[ext_resource type="Texture2D" uid="uid://cttjk6mgo6d5m" path="res://assets/characters/characterAnimation/Sam Idle.png" id="2_44c0j"]
+[ext_resource type="Texture2D" uid="uid://da6wplol4t7k5" path="res://assets/characters/characterAnimation/Sam Punch.png" id="2_cshrh"]
+[ext_resource type="Texture2D" uid="uid://dxig18fi6vrii" path="res://assets/characters/characterAnimation/Sam Jump.png" id="3_44c0j"]
+>>>>>>> Stashed changes
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_nbs6p"]
 atlas = ExtResource("2_44c0j")

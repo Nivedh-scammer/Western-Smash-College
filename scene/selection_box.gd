@@ -14,7 +14,7 @@ var selected = false
 func _ready() -> void:
 	pass
 	
-func set_player_selection(player: Player):
+func set_player_selection(_player: Player):
 	pass
 	
 func get_character():

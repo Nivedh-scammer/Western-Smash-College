@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Character_Resource_Fighting" load_steps=3 format=3 uid="uid://qiwcb5xr1bb2"]
 
 [ext_resource type="Script" uid="uid://de21r07ctqvh2" path="res://assets/characters/character_resources.gd" id="1_eimmp"]
-[ext_resource type="Texture2D" uid="uid://dq52qy1u5g2a2" path="res://assets/characters/characterProfile/Sam Icon.png" id="2_csndy"]
+[ext_resource type="Texture2D" uid="uid://c0eixrhd4gmkt" path="res://assets/characters/characterProfile/Sam Icon.png" id="2_csndy"]
 
 [resource]
 script = ExtResource("1_eimmp")
