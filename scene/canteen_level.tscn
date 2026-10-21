@@ -49,5 +49,9 @@ scale = Vector2(4, 4)
 shape = SubResource("WorldBoundaryShape2D_1ntxb")
 
 [node name="Sam" parent="." instance=ExtResource("2_1ntxb")]
+position = Vector2(100, 572)
+scale = Vector2(2.45911, 2.5061)
 
 [node name="Nivedh" parent="." instance=ExtResource("3_nnr8j")]
+position = Vector2(550, 584)
+scale = Vector2(2.38699, 2)

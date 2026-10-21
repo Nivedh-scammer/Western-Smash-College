@@ -1,7 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://wvn5yjpug0cb"]
+[gd_scene load_steps=19 format=3 uid="uid://wvn5yjpug0cb"]
 
 [ext_resource type="Script" uid="uid://crgfvdxr4uv4j" path="res://scene/nivedh.gd" id="1_d1kp8"]
-[ext_resource type="Texture2D" uid="uid://bdcckxfpg6wox" path="res://assets/characters/characterAnimation/Nivedh Idle.png" id="1_trd8c"]
+[ext_resource type="Texture2D" uid="uid://bdcckxfpg6wox" path="res://assets/characters/characterAnimation/nivedhIdle.png" id="1_trd8c"]
+[ext_resource type="Texture2D" uid="uid://cku4ust4rc1tq" path="res://assets/characters/characterAnimation/nivedhJump.png" id="3_v4r3d"]
+[ext_resource type="Texture2D" uid="uid://mrf2dwittwmu" path="res://assets/characters/characterAnimation/nivedhShoot.png" id="4_8r511"]
+[ext_resource type="Texture2D" uid="uid://fktbcrdrtdc7" path="res://assets/characters/characterAnimation/nivedhWalk.png" id="4_d8xi5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_d1kp8"]
 atlas = ExtResource("1_trd8c")
@@ -9,6 +12,38 @@ region = Rect2(0, 0, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_drh71"]
 atlas = ExtResource("1_trd8c")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8r511"]
+atlas = ExtResource("3_v4r3d")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cc6ny"]
+atlas = ExtResource("3_v4r3d")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3v35"]
+atlas = ExtResource("3_v4r3d")
+region = Rect2(0, 64, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hjpes"]
+atlas = ExtResource("4_8r511")
+region = Rect2(0, 0, 200, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bql44"]
+atlas = ExtResource("4_8r511")
+region = Rect2(0, 64, 200, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dokcr"]
+atlas = ExtResource("4_d8xi5")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ugn4e"]
+atlas = ExtResource("4_d8xi5")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wcler"]
+atlas = ExtResource("4_d8xi5")
 region = Rect2(0, 64, 64, 64)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_v4r3d"]
@@ -24,13 +59,42 @@ animations = [{
 "name": &"idle",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8r511")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cc6ny")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3v35")
+}],
+"loop": false,
 "name": &"jump",
 "speed": 5.0
 }, {
-"frames": [],
-"loop": true,
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hjpes")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bql44")
+}],
+"loop": false,
+"name": &"shoot",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dokcr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ugn4e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wcler")
+}],
+"loop": false,
 "name": &"walk",
 "speed": 5.0
 }]
@@ -38,13 +102,13 @@ animations = [{
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_trd8c"]
 radius = 5.0
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d8xi5"]
+size = Vector2(109, 1.5)
+
 [node name="Nivedh" type="Node2D"]
 
 [node name="Nivedh" type="CharacterBody2D" parent="."]
 script = ExtResource("1_d1kp8")
-
-[node name="Camera2D" type="Camera2D" parent="Nivedh"]
-zoom = Vector2(4, 4)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Nivedh"]
 position = Vector2(5, 2)
@@ -54,4 +118,11 @@ animation = &"idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Nivedh"]
 position = Vector2(1, 1)
+scale = Vector2(1.25864, 1.1923)
 shape = SubResource("CapsuleShape2D_trd8c")
+
+[node name="Hitbox" type="Area2D" parent="Nivedh"]
+
+[node name="Shoot" type="CollisionShape2D" parent="Nivedh/Hitbox"]
+position = Vector2(15.5, 4)
+shape = SubResource("RectangleShape2D_d8xi5")
