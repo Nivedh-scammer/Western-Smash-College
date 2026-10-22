@@ -14,8 +14,12 @@ var selected = false
 func _ready() -> void:
 	pass
 	
-func set_player_selection(_player: Player):
-	pass
+func set_player_selection(player: Player):
+	match player:
+		Player.PLAYER1:
+			p_1_texture.show()
+		Player.PLAYER2:
+			p_2_texture.show()
 	
 func get_character():
 	return character
