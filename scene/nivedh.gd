@@ -8,7 +8,6 @@ var max_health: int = 100
 var current_health: int = 100
 
 # Action state flags
-var is_stunned: bool = false
 var is_shooting: bool = false
 
 # Damage value for shooting
@@ -28,12 +27,6 @@ func _physics_process(delta: float) -> void:
 	# Add gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
-	# Handle stun state
-	if is_stunned:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-		move_and_slide()
-		return
 
 	# Handle Shoot ("Shoot P2")
 	if Input.is_action_just_pressed("Shoot P2") and not is_shooting:
@@ -86,18 +79,6 @@ func manage_hitboxes() -> void:
 	else:
 		if shoot_hitbox:
 			shoot_hitbox.disabled = true
-
-func apply_stun(duration: float = 3.0) -> void:
-	if is_stunned:
-		return
-		
-	is_stunned = true
-	sprite.modulate = Color(0.6, 0.6, 1.0, 1.0)
-	
-	await get_tree().create_timer(duration).timeout
-	
-	is_stunned = false
-	sprite.modulate = Color(1.0, 1.0, 1.0, 1.0)
 
 func take_damage(amount: int) -> void:
 	current_health -= amount
