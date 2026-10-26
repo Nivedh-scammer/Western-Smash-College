@@ -36,8 +36,8 @@ func _input(event: InputEvent) -> void:
 	if not event.is_pressed() or event.is_echo(): 
 		return
 
-	var player1Direction = Input.get_vector("keyboard_left", "keyboard_right", "keyboard_up", "keyboard_down")
-	var player2Direction = Input.get_vector("joypad_left", "joypad_right", "joypad_up", "joypad_down", 1).round()
+	var player1Direction = Input.get_vector("Character selection left P1", "Character selection right P1", "", "")
+	var player2Direction = Input.get_vector("Character selection left P2", "Character selection right P2", "", "")
 
 	if not player1Character and player1Direction != Vector2.ZERO:
 		player1SelectionIndex = _get_selection_index(player1SelectionIndex, Vector2i(player1Direction))
@@ -53,7 +53,7 @@ func _input(event: InputEvent) -> void:
 		if p1_box and p1_box.selectable:
 			player1Character = p1_box.get_character()
 			
-	# Player 2 Lock-In (use your gamepad selection button action)
+	# Player 2 Lock-In
 	if Input.is_action_just_pressed("joypad_accept") and not player2Character:
 		var p2_box = grid_container.get_child(player2SelectionIndex)
 		if p2_box and p2_box.selectable:
@@ -85,13 +85,6 @@ func _get_selection_index(currentIndex: int, direction: Vector2i) -> int:
 	else:
 		return currentIndex
 		
-	
 func _check_selection_done():
-	if player1Character and player2SelectionIndex:
+	if player1Character and player2Character:
 		pass
-	
-	
-
-	
-	
-		
