@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=4 uid="uid://87ellu7d4v6s"]
+[gd_scene load_steps=9 format=4 uid="uid://87ellu7d4v6s"]
 
 [ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_uwi3b"]
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="2_1ntxb"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="3_nnr8j"]
+[ext_resource type="Texture2D" uid="uid://ddx8cq5l52ghl" path="res://assets/mapBackground/map1.png" id="4_pxy77"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_uwi3b")
@@ -55,3 +56,9 @@ scale = Vector2(2.45911, 2.5061)
 [node name="Nivedh" parent="." instance=ExtResource("3_nnr8j")]
 position = Vector2(550, 584)
 scale = Vector2(2.38699, 2)
+
+[node name="Map1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(583, 242)
+scale = Vector2(2.45891, 2.14489)
+texture = ExtResource("4_pxy77")
