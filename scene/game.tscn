@@ -4,5 +4,5 @@
 
 [node name="Game" type="Node2D"]
 
-[node name="CanteenLevel" parent="." instance=ExtResource("1_5kiuu")]
-position = Vector2(6, -2)
+[node name="gym_level" parent="." instance=ExtResource("1_5kiuu")]
+position = Vector2(1135.32, 310.604)
