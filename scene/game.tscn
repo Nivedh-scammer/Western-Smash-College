@@ -1,12 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://cp8rvmwvicijf"]
+[gd_scene load_steps=2 format=3 uid="uid://cp8rvmwvicijf"]
 
 [ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/gym_level.tscn" id="1_5kiuu"]
-[ext_resource type="PackedScene" uid="uid://cbvmw56fhwcko" path="res://scene/canteen_level.tscn" id="2_dbls1"]
 
 [node name="Game" type="Node2D"]
 
 [node name="gym_level" parent="." instance=ExtResource("1_5kiuu")]
-position = Vector2(-270, -191)
+position = Vector2(-557, -272)
+scale = Vector2(0.97, 0.97)
 
-[node name="gym_level2" parent="." instance=ExtResource("2_dbls1")]
-position = Vector2(-343, 174)
+[node name="Camera2D" type="Camera2D" parent="."]
