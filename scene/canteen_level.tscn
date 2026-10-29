@@ -1,0 +1,64 @@
+[gd_scene load_steps=9 format=4 uid="uid://cbvmw56fhwcko"]
+
+[ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_pxy77"]
+[ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="2_aow27"]
+[ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="3_0pas4"]
+[ext_resource type="Texture2D" uid="uid://c34qfagmlc7l3" path="res://assets/mapBackground/map2.png" id="4_pxy77"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
+texture = ExtResource("1_pxy77")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_nnr8j"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_1ntxb")
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_uwi3b"]
+distance = 2.5
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ntxb"]
+
+[node name="gym_level" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(0, 650)
+tile_map_data = PackedByteArray("AAAAAP7/AAAAAAAAAAAAAP//AAAAAAEAAAABAP7/AAABAAAAAAABAP//AAABAAEAAAACAP7/AAAAAAAAAAACAP//AAAAAAEAAAADAP7/AAABAAAAAAADAP//AAABAAEAAAAEAP7/AAAAAAAAAAAEAP//AAAAAAEAAAAFAP7/AAABAAAAAAAFAP//AAABAAEAAAAGAP7/AAAAAAAAAAAGAP//AAAAAAEAAAAHAP7/AAABAAAAAAAHAP//AAABAAEAAAAIAP7/AAAAAAAAAAAIAP//AAAAAAEAAAAJAP7/AAABAAAAAAAJAP//AAABAAEAAAAKAP7/AAAAAAAAAAAKAP//AAAAAAEAAAALAP7/AAABAAAAAAALAP//AAABAAEAAAAMAP7/AAAAAAAAAAAMAP//AAAAAAEAAAANAP7/AAABAAAAAAANAP//AAABAAEAAAAOAP7/AAAAAAAAAAAOAP//AAAAAAEAAAAPAP7/AAABAAAAAAAPAP//AAABAAEAAAAQAP7/AAAAAAAAAAAQAP//AAAAAAEAAAARAP7/AAABAAAAAAARAP//AAABAAEAAAASAP7/AAAAAAAAAAASAP//AAAAAAEAAAATAP7/AAABAAAAAAATAP//AAABAAEAAAAUAP7/AAAAAAAAAAAUAP//AAAAAAEAAAAVAP7/AAABAAAAAAAVAP//AAABAAEAAAAWAP7/AAAAAAAAAAAWAP//AAAAAAEAAAAXAP7/AAABAAAAAAAXAP//AAABAAEAAAAYAP7/AAAAAAAAAAAYAP//AAAAAAEAAAAZAP7/AAABAAAAAAAZAP//AAABAAEAAAAaAP7/AAAAAAAAAAAaAP//AAAAAAEAAAAbAP7/AAABAAAAAAAbAP//AAABAAEAAAAcAP7/AAAAAAAAAAAcAP//AAAAAAEAAAAdAP7/AAABAAAAAAAdAP//AAABAAEAAAAeAP7/AAAAAAAAAAAeAP//AAAAAAEAAAAfAP7/AAABAAAAAAAfAP//AAABAAEAAAAgAP7/AAAAAAAAAAAgAP//AAAAAAEAAAAhAP7/AAABAAAAAAAhAP//AAABAAEAAAAiAP7/AAAAAAAAAAAiAP//AAAAAAEAAAAjAP7/AAABAAAAAAAjAP//AAABAAEAAAAkAP7/AAAAAAAAAAAkAP//AAAAAAEAAAAlAP7/AAABAAAAAAAlAP//AAABAAEAAAAmAP7/AAAAAAAAAAAmAP//AAAAAAEAAAAnAP7/AAABAAAAAAAnAP//AAABAAEAAAAoAP7/AAAAAAAAAAAoAP//AAAAAAEAAAApAP7/AAABAAAAAAApAP//AAABAAEAAAAqAP7/AAAAAAAAAAAqAP//AAAAAAEAAAArAP7/AAABAAAAAAArAP//AAABAAEAAAAsAP7/AAAAAAAAAAAsAP//AAAAAAEAAAAtAP7/AAABAAAAAAAtAP//AAABAAEAAAAuAP7/AAAAAAAAAAAuAP//AAAAAAEAAAAvAP7/AAABAAAAAAAvAP//AAABAAEAAAAwAP7/AAAAAAAAAAAwAP//AAAAAAEAAAAxAP7/AAABAAAAAAAxAP//AAABAAEAAAAyAP7/AAAAAAAAAAAyAP//AAAAAAEAAAAzAP7/AAABAAAAAAAzAP//AAABAAEAAAA0AP7/AAAAAAAAAAA0AP//AAAAAAEAAAA1AP7/AAABAAAAAAA1AP//AAABAAEAAAA2AP7/AAAAAAAAAAA2AP//AAAAAAEAAAA3AP7/AAABAAAAAAA3AP//AAABAAEAAAA4AP7/AAAAAAAAAAA4AP//AAAAAAEAAAA5AP7/AAABAAAAAAA5AP//AAABAAEAAAA6AP7/AAAAAAAAAAA6AP//AAAAAAEAAAA7AP7/AAABAAAAAAA7AP//AAABAAEAAAA8AP7/AAAAAAAAAAA8AP//AAAAAAEAAAA9AP7/AAABAAAAAAA9AP//AAABAAEAAAA+AP7/AAAAAAAAAAA+AP//AAAAAAEAAAA/AP7/AAABAAAAAAA/AP//AAABAAEAAABAAP7/AAAAAAAAAABAAP//AAAAAAEAAABBAP7/AAABAAAAAABBAP//AAABAAEAAABCAP7/AAAAAAAAAABCAP//AAAAAAEAAABDAP7/AAABAAAAAABDAP//AAABAAEAAABEAP7/AAAAAAAAAABEAP//AAAAAAEAAABFAP7/AAABAAAAAABFAP//AAABAAEAAABGAP7/AAAAAAAAAABGAP//AAAAAAEAAABHAP7/AAABAAAAAABHAP//AAABAAEAAAA=")
+tile_set = SubResource("TileSet_nnr8j")
+
+[node name="LeftBoundary" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftBoundary"]
+position = Vector2(0, 298)
+rotation = 1.5708
+scale = Vector2(4, 4)
+shape = SubResource("WorldBoundaryShape2D_uwi3b")
+
+[node name="RightBoundary" type="StaticBody2D" parent="."]
+position = Vector2(-452, -2)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightBoundary"]
+position = Vector2(1595, 292)
+rotation = -1.5708
+scale = Vector2(4, 4)
+shape = SubResource("WorldBoundaryShape2D_1ntxb")
+
+[node name="Sam" parent="." instance=ExtResource("2_aow27")]
+position = Vector2(100, 572)
+scale = Vector2(2.45911, 2.5061)
+
+[node name="Nivedh" parent="." instance=ExtResource("3_0pas4")]
+position = Vector2(550, 584)
+scale = Vector2(2.38699, 2)
+
+[node name="Map1" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(583, 242)
+scale = Vector2(2.45891, 2.14489)
+texture = ExtResource("4_pxy77")
