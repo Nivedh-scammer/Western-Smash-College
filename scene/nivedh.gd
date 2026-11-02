@@ -1,5 +1,8 @@
 extends CharacterBody2D
 
+# Signalling health node
+signal health_changed(new_health: int)
+
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
@@ -83,6 +86,8 @@ func manage_hitboxes() -> void:
 func take_damage(amount: int) -> void:
 	current_health -= amount
 	current_health = max(0, current_health)
+	
+	health_changed.emit(current_health)
 	
 	if current_health <= 0:
 		die()
