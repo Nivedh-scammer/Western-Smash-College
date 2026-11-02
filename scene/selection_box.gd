@@ -12,43 +12,22 @@ enum Player {NONE, PLAYER1, PLAYER2}
 var selected = false
 
 func _ready() -> void:
-	pass
-	
-func set_player_selection(player: Player):
-	match player:
-		Player.PLAYER1:
-			p_1_texture.show()
-		Player.PLAYER2:
-			p_2_texture.show()
-	
-func get_character():
-	return character
-	
-func reset():
-	selected = false
-
 	p_1_texture.hide()
 	p_2_texture.hide()
 
+func set_player_selection(player: Player):
+	if player == Player.PLAYER1:
+		selected = true
+		p_1_texture.show()
+	elif player == Player.PLAYER2:
+		selected = true
+		p_2_texture.show()
 
+func get_character():
+	return character
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-					
+func reset():
+	selected = false
+	
+	p_1_texture.hide()
+	p_2_texture.hide()
