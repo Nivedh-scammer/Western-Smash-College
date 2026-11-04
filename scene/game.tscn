@@ -1,25 +1,28 @@
 [gd_scene load_steps=6 format=3 uid="uid://cp8rvmwvicijf"]
 
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/gym_level.tscn" id="1_5kiuu"]
 [ext_resource type="Script" path="res://scene/sam_health.gd" id="2_33cqm"]
 [ext_resource type="Script" path="res://scene/nivedh_health.gd" id="3_xwcet"]
+=======
+[ext_resource type="Script" uid="uid://f2so0mmm62ef" path="res://scene/sam_health.gd" id="2_33cqm"]
+[ext_resource type="PackedScene" uid="uid://cbvmw56fhwcko" path="res://scene/canteen_level.tscn" id="3_p1ry8"]
+[ext_resource type="Script" uid="uid://bbxojmeme3jlu" path="res://scene/nivedh_health.gd" id="3_xwcet"]
+>>>>>>> 475eb5eb6a50a6fa68af67e952e7648e50f23688
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="5_xlg7c"]
 
 [node name="Game" type="Node2D"]
 
-[node name="gym_level" parent="." instance=ExtResource("1_5kiuu")]
-position = Vector2(-557, -272)
-scale = Vector2(0.97, 0.97)
-
 [node name="Camera2D" type="Camera2D" parent="."]
 
-[node name="sam_health" type="ProgressBar" parent="."]
+[node name="sam_health" type="ProgressBar" parent="." node_paths=PackedStringArray("player")]
 offset_left = -401.0
 offset_top = -230.0
 offset_right = -98.0
 offset_bottom = -203.0
 script = ExtResource("2_33cqm")
+player = NodePath("../Sam")
 
 [node name="nivedh_health" type="ProgressBar" parent="." node_paths=PackedStringArray("player")]
 offset_left = 194.0
@@ -29,8 +32,14 @@ offset_bottom = -202.0
 script = ExtResource("3_xwcet")
 player = NodePath("../nivedh")
 
+[node name="gym_level" parent="." instance=ExtResource("3_p1ry8")]
+position = Vector2(2, -1)
+scale = Vector2(1.01924, 0.808404)
+
 [node name="Sam" parent="." instance=ExtResource("4_p1ry8")]
-position = Vector2(-261, 165)
+position = Vector2(-380, 209)
+scale = Vector2(4.42067, 4.51005)
 
 [node name="nivedh" parent="." instance=ExtResource("5_xlg7c")]
-position = Vector2(65, 106)
+position = Vector2(385, 226)
+scale = Vector2(3.74447, 3.43901)

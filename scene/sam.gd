@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+signal health_changed(new_health: int)
+
+const SPEED = 600.0
+const JUMP_VELOCITY = -600.0
 
 # Health and combat stats
 var max_health: int = 150
@@ -77,6 +79,9 @@ func manage_hitboxes() -> void:
 
 func take_damage(amount: int) -> void:
 	current_health = max(0, current_health - amount)
+	
+	health_changed.emit(current_health)
+		
 	if current_health <= 0:
 		die()
 
