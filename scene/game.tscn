@@ -1,16 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cp8rvmwvicijf"]
+[gd_scene load_steps=5 format=3 uid="uid://cp8rvmwvicijf"]
 
-[ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/gym_level.tscn" id="1_5kiuu"]
 [ext_resource type="Script" uid="uid://f2so0mmm62ef" path="res://scene/sam_health.gd" id="2_33cqm"]
 [ext_resource type="Script" uid="uid://bbxojmeme3jlu" path="res://scene/nivedh_health.gd" id="3_xwcet"]
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="5_xlg7c"]
 
 [node name="Game" type="Node2D"]
-
-[node name="gym_level" parent="." instance=ExtResource("1_5kiuu")]
-position = Vector2(-557, -272)
-scale = Vector2(0.97, 0.97)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
