@@ -2,11 +2,13 @@
 
 [ext_resource type="Script" uid="uid://de21r07ctqvh2" path="res://assets/characters/character_resources.gd" id="1_dg4dy"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="1_ig61b"]
-[ext_resource type="Texture2D" uid="uid://bxtuftedn5t4t" path="res://assets/characters/characterProfile/Nivedh Icon.png" id="2_r6pb1"]
+
+[sub_resource type="Resource" id="Resource_r6pb1"]
+metadata/__load_path__ = "res://assets/characters/characterProfile/Nivedh Icon.png"
 
 [resource]
 script = ExtResource("1_dg4dy")
 name = "Nivedh"
-texture = ExtResource("2_r6pb1")
+texture = SubResource("Resource_r6pb1")
 character_scene = ExtResource("1_ig61b")
 metadata/_custom_type_script = "uid://de21r07ctqvh2"
