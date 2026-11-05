@@ -11,13 +11,9 @@ config_version=5
 [application]
 
 config/name="Western-Smash-College"
-run/main_scene="uid://bpgqnl8ly55ve"
+run/main_scene="uid://cp8rvmwvicijf"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
-
-[autoload]
-
-GameManager="*res://scene/GameManager.gd"
 
 [editor]
 

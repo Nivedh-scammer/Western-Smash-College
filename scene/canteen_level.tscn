@@ -1,6 +1,7 @@
 [gd_scene load_steps=7 format=4 uid="uid://cbvmw56fhwcko"]
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 [ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_pxy77"]
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="2_aow27"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="3_0pas4"]
@@ -9,6 +10,12 @@
 [ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_pxy77"]
 [ext_resource type="Texture2D" uid="uid://c34qfagmlc7l3" path="res://assets/mapBackground/map2.png" id="4_pxy77"]
 >>>>>>> 475eb5eb6a50a6fa68af67e952e7648e50f23688
+=======
+[ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_pxy77"]
+[ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="2_aow27"]
+[ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="3_0pas4"]
+[ext_resource type="Texture2D" uid="uid://c34qfagmlc7l3" path="res://assets/mapBackground/map2.png" id="4_pxy77"]
+>>>>>>> parent of 2ec9013 (more working on putting charcvter in level)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_pxy77")
@@ -30,7 +37,7 @@ distance = 2.5
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_1ntxb"]
 
-[node name="canteen_level" type="Node2D"]
+[node name="gym_level" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
 position = Vector2(-582, 409)
