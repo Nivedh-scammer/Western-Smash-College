@@ -2,6 +2,7 @@
 
 <<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://87ellu7d4v6s" path="res://scene/gym_level.tscn" id="1_5kiuu"]
+<<<<<<< HEAD
 [ext_resource type="Script" path="res://scene/sam_health.gd" id="2_33cqm"]
 [ext_resource type="Script" path="res://scene/nivedh_health.gd" id="3_xwcet"]
 =======
@@ -9,6 +10,10 @@
 [ext_resource type="PackedScene" uid="uid://cbvmw56fhwcko" path="res://scene/canteen_level.tscn" id="3_p1ry8"]
 [ext_resource type="Script" uid="uid://bbxojmeme3jlu" path="res://scene/nivedh_health.gd" id="3_xwcet"]
 >>>>>>> 475eb5eb6a50a6fa68af67e952e7648e50f23688
+=======
+[ext_resource type="Script" uid="uid://f2so0mmm62ef" path="res://scene/sam_health.gd" id="2_33cqm"]
+[ext_resource type="Script" uid="uid://bbxojmeme3jlu" path="res://scene/nivedh_health.gd" id="3_xwcet"]
+>>>>>>> parent of 2ec9013 (more working on putting charcvter in level)
 [ext_resource type="PackedScene" uid="uid://bbxr66ggbbydn" path="res://scene/sam.tscn" id="4_p1ry8"]
 [ext_resource type="PackedScene" uid="uid://wvn5yjpug0cb" path="res://scene/nivedh.tscn" id="5_xlg7c"]
 

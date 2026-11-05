@@ -30,15 +30,11 @@ func _input(event: InputEvent) -> void:
 	if not event.is_pressed(): return
 
 	var player1Direction = Input.get_axis("Left P1", "Right P1")
-	var player2Direction = Input.get_axis("Left P2", "Right P2")
 	#var player1Direction = Input.get_vector("Left P1", "Right P1", "Jump P1", "Down P1")
 	#var player2Direction = Input.get_vector("Left P2", "Right P2", "Jump P2", "Down P2", 1).round()
 
 	if not player1Character:
 		player1SelectionIndex = _get_selection_index(player1SelectionIndex, player1Direction)
-		
-	if not player2Character:
-		player2SelectionIndex = _get_selection_index(player2SelectionIndex, player2Direction)
 
 	#if not player2Character:
 		#player2SelectionIndex = _get_selection_index(player2SelectionIndex, player2Direction)
@@ -86,4 +82,4 @@ func _get_selection_index(currentIndex: int, direction):
 
 func _check_selection_done():
 	if player1Character and player2Character:
-		GameManager.start_game(player1Character, player2Character)  
+		pass  

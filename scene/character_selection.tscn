@@ -1,9 +1,9 @@
 [gd_scene load_steps=8 format=3 uid="uid://bpgqnl8ly55ve"]
 
-[ext_resource type="Texture2D" uid="uid://pnrnbgs0is6u" path="res://assets/characters/characterProfile/sam_Icon.png" id="1_dwavm"]
+[ext_resource type="Texture2D" uid="uid://dq52qy1u5g2a2" path="res://assets/characters/characterProfile/sam_Icon.png" id="1_dwavm"]
 [ext_resource type="Script" uid="uid://b3ue44g2wicsk" path="res://scene/character_selection.gd" id="1_gahpj"]
-[ext_resource type="Texture2D" uid="uid://ddqc5y1lc8n7q" path="res://assets/characters/characterProfile/versus.png" id="2_81hqe"]
-[ext_resource type="Texture2D" uid="uid://bsupcssjrec4y" path="res://assets/characters/characterProfile/nivedh_Icon.png" id="3_2qblp"]
+[ext_resource type="Texture2D" uid="uid://bbyw05x1xfiic" path="res://assets/characters/characterProfile/versus.png" id="2_81hqe"]
+[ext_resource type="Texture2D" uid="uid://bxr60u8605lh7" path="res://assets/characters/characterProfile/nivedh_Icon.png" id="3_2qblp"]
 [ext_resource type="PackedScene" uid="uid://dutdtwo85m1eg" path="res://scene/selection_box.tscn" id="3_81hqe"]
 [ext_resource type="Resource" uid="uid://qiwcb5xr1bb2" path="res://assets/characters/characterResourceFighting/1_sam.tres" id="5_gueu1"]
 [ext_resource type="Resource" uid="uid://bv8ti2qijoxkv" path="res://assets/characters/characterResourceFighting/2_nivedh.tres" id="6_ci3hj"]
