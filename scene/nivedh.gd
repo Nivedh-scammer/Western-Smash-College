@@ -3,8 +3,8 @@ extends CharacterBody2D
 # Signalling health node
 signal health_changed(new_health: int)
 
-const SPEED = 500.0
-const JUMP_VELOCITY = -700.0
+const SPEED = 800.0
+const JUMP_VELOCITY = -1000.0
 
 # Health stats
 var max_health: int = 100
