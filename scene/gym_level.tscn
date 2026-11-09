@@ -1,8 +1,10 @@
-[gd_scene load_steps=8 format=4 uid="uid://87ellu7d4v6s"]
+[gd_scene load_steps=10 format=4 uid="uid://87ellu7d4v6s"]
 
 [ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_6re6c"]
 [ext_resource type="Script" uid="uid://b28uj7k4ush3n" path="res://scene/gym_level.gd" id="1_x21sm"]
 [ext_resource type="Texture2D" uid="uid://df61yiue6g6s1" path="res://assets/mapBackground/map1.png" id="4_svh43"]
+[ext_resource type="Script" uid="uid://f2so0mmm62ef" path="res://scene/sam_health.gd" id="4_x21sm"]
+[ext_resource type="Script" path="res://scene/nivedh_health.gd" id="5_hbrx3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_6re6c")
@@ -64,3 +66,17 @@ position = Vector2(946, 522)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(579, 292)
+
+[node name="sam_health" type="ProgressBar" parent="."]
+offset_left = 178.0
+offset_top = 62.0
+offset_right = 481.0
+offset_bottom = 89.0
+script = ExtResource("4_x21sm")
+
+[node name="nivedh_health" type="ProgressBar" parent="."]
+offset_left = 758.0
+offset_top = 62.0
+offset_right = 1039.0
+offset_bottom = 89.0
+script = ExtResource("5_hbrx3")

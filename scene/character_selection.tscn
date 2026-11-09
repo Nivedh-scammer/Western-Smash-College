@@ -22,10 +22,10 @@ layout_mode = 1
 anchors_preset = 4
 anchor_top = 0.5
 anchor_bottom = 0.5
-offset_left = 287.0
-offset_top = -137.0
-offset_right = 695.0
-offset_bottom = -37.0
+offset_left = 350.0
+offset_top = -325.0
+offset_right = 758.0
+offset_bottom = -225.0
 grow_vertical = 2
 scale = Vector2(2.5, 2.5)
 
@@ -71,3 +71,6 @@ unique_name_in_owner = true
 layout_mode = 2
 texture = ExtResource("3_2qblp")
 expand_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 327)
