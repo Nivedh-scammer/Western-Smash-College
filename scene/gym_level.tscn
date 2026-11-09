@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=4 uid="uid://87ellu7d4v6s"]
 
-[ext_resource type="Texture2D" uid="uid://dy66y0ul2fcae" path="res://assets/tileSet/canteenConcrete.png" id="1_6re6c"]
+[ext_resource type="Texture2D" uid="uid://bh8h07hdhn5h4" path="res://assets/tileSet/canteenConcrete.png" id="1_6re6c"]
 [ext_resource type="Script" uid="uid://b28uj7k4ush3n" path="res://scene/gym_level.gd" id="1_x21sm"]
-[ext_resource type="Texture2D" uid="uid://df61yiue6g6s1" path="res://assets/mapBackground/map1.png" id="4_svh43"]
+[ext_resource type="Texture2D" uid="uid://ddx8cq5l52ghl" path="res://assets/mapBackground/map1.png" id="4_svh43"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1ntxb"]
 texture = ExtResource("1_6re6c")

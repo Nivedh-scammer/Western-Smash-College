@@ -26,13 +26,13 @@ region = Rect2(64, 0, 64, 64)
 atlas = ExtResource("3_v4r3d")
 region = Rect2(0, 64, 64, 64)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_d8xi5"]
+atlas = ExtResource("4_8r511")
+region = Rect2(0, 0, 300, 64)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_hjpes"]
 atlas = ExtResource("4_8r511")
-region = Rect2(0, 0, 200, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bql44"]
-atlas = ExtResource("4_8r511")
-region = Rect2(0, 64, 200, 64)
+region = Rect2(0, 64, 300, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_dokcr"]
 atlas = ExtResource("4_d8xi5")
@@ -75,14 +75,14 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hjpes")
+"texture": SubResource("AtlasTexture_d8xi5")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bql44")
+"texture": SubResource("AtlasTexture_hjpes")
 }],
 "loop": false,
 "name": &"shoot",
-"speed": 10.0
+"speed": 7.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -110,16 +110,19 @@ script = ExtResource("1_d1kp8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(5, 2)
-scale = Vector2(0.703125, 0.703125)
+scale = Vector2(23.4128, 26.0201)
 sprite_frames = SubResource("SpriteFrames_v4r3d")
 animation = &"shoot"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(1, 1)
-scale = Vector2(1.25864, 1.1923)
+scale = Vector2(41.9105, 44.1227)
 shape = SubResource("CapsuleShape2D_trd8c")
 
 [node name="Hitbox" type="Area2D" parent="."]
+scale = Vector2(33.2982, 37.0063)
 
 [node name="Shoot" type="CollisionShape2D" parent="Hitbox"]
 position = Vector2(15.5, 4)
