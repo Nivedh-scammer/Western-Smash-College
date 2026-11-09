@@ -167,6 +167,7 @@ radius = 7.0
 size = Vector2(20, 7)
 
 [node name="Sam" type="CharacterBody2D"]
+scale = Vector2(7.20359, 6.19011)
 script = ExtResource("1_8d5pb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]

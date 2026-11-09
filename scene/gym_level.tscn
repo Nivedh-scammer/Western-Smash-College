@@ -56,5 +56,11 @@ scale = Vector2(2.45891, 2.14489)
 texture = ExtResource("4_svh43")
 
 [node name="P1SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(222, 565)
+scale = Vector2(0.960002, 1)
 
 [node name="P2SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(914, 569)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(579, 292)
